@@ -73,5 +73,12 @@
 		</plugins>
 	</build>
 
+	<repositories>
+		<repository>
+			<id>spring.io</id>
+			<name>spring repository</name>
+			<url>https://repo.spring.io/release/</url>
+		</repository>
+	</repositories>
 
 </project>
