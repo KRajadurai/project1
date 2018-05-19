@@ -1,4 +1,4 @@
-package com.logan.web;
+package com.logan.controller;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -34,7 +34,7 @@ public class CollectionServiceController {
 	}
 	
 	@RequestMapping(path = "/Services/Collection/{userId}", method = RequestMethod.GET, produces = { "application/json" })
-	public List<Collection> getUserCollectionList(@PathVariable Integer userId, @RequestParam(name = "from") @DateTimeFormat(pattern="dd/MM/yyyy") Date fromDate,
+	public List<Collection> getUserCollectionList(@PathVariable Long userId, @RequestParam(name = "from") @DateTimeFormat(pattern="dd/MM/yyyy") Date fromDate,
 			@RequestParam(name = "to") @DateTimeFormat(pattern="dd/MM/yyyy") Date toDate) throws ParseException {
 		return collectionService.getCollectionList(userId, fromDate, toDate);
 	}
