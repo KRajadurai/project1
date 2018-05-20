@@ -1,11 +1,14 @@
 package com.logan.domain;
 // Generated 17 May, 2018 4:01:55 PM by Hibernate Tools 4.3.1
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -20,8 +23,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Roles implements java.io.Serializable {
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	private long id;
+	private Integer id;
 
 	@Column(name = "name", nullable = false, length = 45)
 	private String name;
@@ -32,22 +36,20 @@ public class Roles implements java.io.Serializable {
 	public Roles() {
 	}
 
-	public Roles(long id, String name, Set<UserRoles> userRoles) {
-		super();
-		this.id = id;
+	public Roles(String name, Set<UserRoles> userRoles) {
 		this.name = name;
 		this.userRoles = userRoles;
 	}
 
-	public Roles(int id) {
+	public Roles(Integer id) {
 		this.id = id;
 	}
 
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

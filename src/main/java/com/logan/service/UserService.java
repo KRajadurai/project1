@@ -28,7 +28,7 @@ public class UserService implements UserDetailsService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	public Users getUsers(int loginId){
+	public Users getUsers(long loginId){
 		Optional<Users> user = usersRepository.findById(loginId);
 		return user.get();
 	}

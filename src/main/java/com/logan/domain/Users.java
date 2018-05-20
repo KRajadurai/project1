@@ -1,11 +1,14 @@
 package com.logan.domain;
 // Generated 17 May, 2018 4:01:55 PM by Hibernate Tools 4.3.1
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,8 +26,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Users implements java.io.Serializable {
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	private long id;
+	private Integer id;
 
 	@Column(name = "name", nullable = false, length = 45)
 	private String name;
@@ -51,14 +55,12 @@ public class Users implements java.io.Serializable {
 	public Users() {
 	}
 
-	public Users(int id, String name) {
-		this.id = id;
+	public Users(String name) {
 		this.username = name;
 	}
 
-	public Users(int id, String name, String username, String password, Area area, Set<UserRoles> userRoles, Set<Ledger> ledgers,
+	public Users( String name, String username, String password, Area area, Set<UserRoles> userRoles, Set<Ledger> ledgers,
 			Set<Collection> collections) {
-		this.id = id;
 		this.name = name;
 		this.username = username;
 		this.password = password;
@@ -68,11 +70,11 @@ public class Users implements java.io.Serializable {
 		this.collections = collections;
 	}
 
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
