@@ -1,9 +1,0 @@
-= Chit Fund Webservice
-
-Technologies/Framework used:
-
-|===
-| Technologies/Framework | Description
-
-| spring-boot
-| 
